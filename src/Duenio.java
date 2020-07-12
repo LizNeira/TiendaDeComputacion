@@ -1,7 +1,7 @@
 
 public class Duenio 
 {
-    
+    private Tienda tienda = null;    
      
     public Duenio()
     {
@@ -13,6 +13,7 @@ public class Duenio
      */
     public void menuPrincipal()
     {
+        tienda = new Tienda();
         char opcion;
         
         EntradaYSalida.mostrarMensaje("----Bienvevidos----\n");
@@ -59,8 +60,11 @@ public class Duenio
     
 
     private void darDeALtaComponentesPerifericos()
-    {
+    {   
         char opcion;
+        String descripcion = "";
+        int cantidadStock = 0;
+        double precioUnitario = 0.0;
 
       do
       {
@@ -69,8 +73,15 @@ public class Duenio
         EntradaYSalida.mostrarMensaje("Teclado, mouse\n");
         EntradaYSalida.mostrarMensaje("Salir:    \n");
 
+        EntradaYSalida.mostrarMensaje("Ingresar nombre del producto\n");
+        descripcion = EntradaYSalida.leerNombreProducto();
+        EntradaYSalida.mostrarMensaje("Ingresar cantidad:  \n");
+        cantidadStock = Integer.parseInt(EntradaYSalida.leerCantidadStock());
+        EntradaYSalida.mostrarMensaje("Ingresar precio unitario: \n");
+        precioUnitario = Double.parseDouble(EntradaYSalida.leerNombreProducto());
 
-
+        tienda.setProducto(descripcion, cantidadStock, precioUnitario);
+        
         EntradaYSalida.mostrarMensaje("\nDesea continuar[s/n]?: ");
         opcion = EntradaYSalida.leerOpcion().charAt(0);
 
