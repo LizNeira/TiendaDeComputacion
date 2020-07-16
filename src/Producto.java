@@ -13,14 +13,14 @@ public class Producto {
      * @param descripcion
      * @param precioUnitario
      */
-    public Producto(int cantidad, String descripcion, double precioUnitario) {
-        this.cantidad = cantidad;
+    public Producto(int cantidadStock, String descripcion, double precioUnitario) {
+        this.cantidadStock = cantidadStock;
         this.descripcion = descripcion;
         this.precioUnitario = precioUnitario;
     }
 
     public void setCantidadStock(int cantidadStock) {
-        this.cantidad = cantidad;
+        this.cantidadStock = cantidadStock;
     }
 
     public int getCantidadStock() {
@@ -42,7 +42,10 @@ public class Producto {
     public double getPrecioUnitario() {
         return precioUnitario;
     }
-
+    /**
+     * Metodo que se encarga de crear productos mediante factoria
+     * @return p of type Productos
+     */
     public Producto getComponentesYperifericos(String descripcion, int cantidadStock, double precioUnitario) {
         
         FactoriaDeProductos factoria = FactoriaDeProductos.getInstancia();
