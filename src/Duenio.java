@@ -15,20 +15,31 @@ public class Duenio
     {
         tienda = new Tienda();
         char opcion;
-        
+       do
+       { 
         EntradaYSalida.mostrarMensaje("----Bienvevidos----\n");
         EntradaYSalida.mostrarMensaje("[1] Dar de alta producto\n");
-        EntradaYSalida.mostrarMensaje("[2] Salir\n");
+        EntradaYSalida.mostrarMensaje("[2] Mostrar Stock de productos\n");
+        EntradaYSalida.mostrarMensaje("[3] Salir\n");
         EntradaYSalida.mostrarMensaje("Digite una opcion: ");
         
         opcion = EntradaYSalida.leerOpcion().charAt(0);
         
-
-        if('1' == opcion)
-            menuAltaProductos();
-                
-        else
-         EntradaYSalida.mostrarMensaje("Sistema Cerrado");
+        } while (opcion < '1' || opcion > '3');
+        
+       switch (opcion)
+       {
+          case '1':
+    	        menuAltaProductos();
+           break;
+          case '2':
+                 tienda.mostrarStock();
+           break;
+       
+          case '3':
+           EntradaYSalida.mostrarMensaje("salir");
+           break;
+        }
 
     }
 
@@ -78,7 +89,7 @@ public class Duenio
         EntradaYSalida.mostrarMensaje("Ingresar cantidad:  \n");
         cantidadStock = Integer.parseInt(EntradaYSalida.leerCantidadStock());
         EntradaYSalida.mostrarMensaje("Ingresar precio unitario: \n");
-        precioUnitario = Double.parseDouble(EntradaYSalida.leerNombreProducto());
+        precioUnitario = Double.parseDouble(EntradaYSalida.leerPrecioDelProducto());
 
         tienda.setProducto(descripcion, cantidadStock, precioUnitario);
         
@@ -89,8 +100,7 @@ public class Duenio
         
     }
 
-
-
+   
     
       
     
